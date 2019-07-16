@@ -8,19 +8,24 @@ $( document ).ready(function() {
 
 var random =Math.floor(Math.random() * 119 + 1)
 
-   console.log(random);
+  // console.log(random);
  $("#randomnumber").text(random);
 
 
 // set random numbers between 1-12 for each crystal
- var crystal = [];
- function crystalpush(){
-     for (var i =0; i < 4; i++);
-var crystal = Math.floor(Math.random()*12)
+ 
+ function crystalPush(){
+     for (var i =0; i < 4; i++){
+      var crystalScore = Math.floor(Math.random()* 12)+1;
+    }
+    console.log("SCORE FOR CRYSTAL: ",crystalScore);
 
-    console.log(crystal);
+    number = Math.random() * 13;
+$("#button1").src += number;
+     
  }
-
+ crystalPush ();
+//var userTotal = crystal
 
 var wins = 0
 var losses = 0
@@ -28,7 +33,7 @@ var finalTotal = 0
 
 $("#numberWins").text(wins);
 $("#numberlosses").text(losses);
-$('#finalTotal').test(userTotal);
+//$('#finalTotal').test(userTotal);
 //reset function
 
 function reset(){
@@ -45,14 +50,17 @@ function reset(){
 }
 
 
-
+var btn1 = $("#button1")
+var btn2 = $("#button2")
+var btn3 = $("#button3")
+var btn4 = $("#button4")
 
 //click on the each crystal 
-$("#button1").on("click",function(b){
+$("#gems").on("click",function(){
+    
+  btn1 = crystalPush();
 
-     var blue = 3
-
-});
+});console.log(btn1);
 
 
 // a new random number should be  generated every single time the player wins or losses
