@@ -12,7 +12,7 @@ var PlayerScore = 0
 var random =Math.floor(Math.random() * 100 + 20)
 
    console.log(random);
- $("#randomNumber").text(  random);
+ $("#randomNumber").text(random);
 
 
 // set random numbers between 1-12 for each crystal
@@ -29,14 +29,16 @@ $("#button1").src += number;
  }
  crystalPush ();*/
 
- var crystal = $(".crystal");
-crystal.each(function() {
+var crystal = $(".crystal");
+crystal.on("click", function() {
   var gems = Math.floor(Math.random() * 11) + 1;
   console.log(gems);
   $(this).attr({
     "data-random": gems
   }); 
-  
+
+  PlayerScore = $(this)
+  console.log(this)
 });
 
 
@@ -57,7 +59,7 @@ function reset(){
   $("#numberWins").text("Player wins:"+ wins);
 $("#numberLosses").text("Player losses:"+ losses);
 $('#finalTotal').text("Total Score:"+ PlayerScore);
-reset();
+
 }
 
 
@@ -77,14 +79,44 @@ reset();
   }
 
 
+  // //click on the each crystal 
+  // $(".crystal").on("click", function(){
+  //   //PlayerScore = $(this).data("random")+PlayerScore;
+  //   console.log($(this).data("random"))
+  //   $('#finalTotal').text("Total Score:"+ PlayerScore);
+
+  //   /if(PlayerScore == random){
+  //     youWon();
+  
+  //  }
+  
+  //  else {
+  //    youLost();
+  //  }
+      
+  // });
+  
+  // $('#finalTotal').text("Total Score:"+ PlayerScore);
+
+
 //click on the each crystal 
+
 $("#button1").on("click",function(){
  
+  var x = $(this).data("random")
+  console.log(x)
+
+  finalTotal = finalTotal + x
+
   PlayerScore += PlayerScore;
   $('#finalTotal').text("Total Score:"+ PlayerScore);
-  console.log("In the function, total score :" +PlayerScore);
 
-  if (finalTotal == randomNumber){ 
+  console.log("_____________")
+console.log(PlayerScore)
+console.log(finalTotal)
+console.log(random)
+
+  if (finalTotal == random){ 
       youWon(); }
 
   else if (PlayerScore > randomNumber){
