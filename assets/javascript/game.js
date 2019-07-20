@@ -17,31 +17,11 @@ var random =Math.floor(Math.random() * 100 + 20)
 
 // set random numbers between 1-12 for each crystal
  
- /*function crystalPush(){
-     for (var i =0; i < 4; i++){
-      var crystalScore = Math.floor(Math.random()* 12)+1;
-    }
-    console.log("SCORE FOR CRYSTAL: ",crystalScore);
-
-    number = Math.random() * 13;
-$("#button1").src += number;
-     
- }
- crystalPush ();*/
-
-var crystal = $(".crystal");
-crystal.on("click", function() {
-  var gems = Math.floor(Math.random() * 11) + 1;
-  console.log(gems);
-  $(this).attr({
-    "data-random": gems
-  }); 
-
-  PlayerScore = $(this)
-  console.log(this)
-});
-
-
+  var btn1 = Math.floor(Math.random( )*11+1)
+  var btn2 = Math.floor(Math.random( )*11+1)
+  var btn3 = Math.floor(Math.random( )*11+1)
+  var btn4 = Math.floor(Math.random( )*11+1)
+  console.log(btn1,btn2,btn3,btn4)
 
 $("#numberWins").text("Player wins:"+ wins);
 $("#numberLosses").text("Player losses:"+ losses);
@@ -54,19 +34,21 @@ function reset(){
   var random =Math.floor(Math.random() * 119 + 1);
   console.log(random);
   $("#randomNumber").text(random);
-  var crystal = Math.floor(Math.random()*12)
-  userTotal= 0;
-  $("#numberWins").text("Player wins:"+ wins);
-$("#numberLosses").text("Player losses:"+ losses);
+
+  var btn1 = Math.floor(Math.random( )*11+1)
+  var btn1 = Math.floor(Math.random( )*11+1)
+  var btn1 = Math.floor(Math.random( )*11+1)
+  var btn1 = Math.floor(Math.random( )*11+1)
+  PlayerScore = 0
 $('#finalTotal').text("Total Score:"+ PlayerScore);
 
 }
 
 
-  //add the wins to the Player Score 
+  //add the wins or loss to the Player Score 
 
   function youWon() {
-      win ++;
+      wins ++
       $("#numberWins").text("Player wins:"+ wins);
       reset ();
       
@@ -79,13 +61,24 @@ $('#finalTotal').text("Total Score:"+ PlayerScore);
   }
 
 
-  // //click on the each crystal 
-  // $(".crystal").on("click", function(){
-  //   //PlayerScore = $(this).data("random")+PlayerScore;
-  //   console.log($(this).data("random"))
+  //click on the each crystal 
+
+//   $(".crystal").each( function(){
+//     var random = Math.floor(Math.random() * 11)+1;
+//     $(this).attr({
+//          "data-random": random    
+         
+//     });console.log(random)
+//  })
+
+
+  // // var gems = $(".crystal")
+  // // $(".crystal").on("click", function(){
+  // //   //PlayerScore = $(this).data("random")+PlayerScore;
+  // //   console.log($(this).data("random"))
   //   $('#finalTotal').text("Total Score:"+ PlayerScore);
 
-  //   /if(PlayerScore == random){
+  //   if(PlayerScore == random){
   //     youWon();
   
   //  }
@@ -96,70 +89,64 @@ $('#finalTotal').text("Total Score:"+ PlayerScore);
       
   // });
   
-  // $('#finalTotal').text("Total Score:"+ PlayerScore);
+ // $('#finalTotal').text("Total Score:"+ PlayerScore);
 
 
 //click on the each crystal 
 
 $("#button1").on("click",function(){
+   
  
-  var x = $(this).data("random")
-  console.log(x)
-
-  finalTotal = finalTotal + x
-
-  PlayerScore += PlayerScore;
+  PlayerScore = PlayerScore + btn1;
   $('#finalTotal').text("Total Score:"+ PlayerScore);
 
-  console.log("_____________")
-console.log(PlayerScore)
-console.log(finalTotal)
-console.log(random)
-
-  if (finalTotal == random){ 
+   if (random == PlayerScore){ 
       youWon(); }
 
-  else if (PlayerScore > randomNumber){
+  else if (PlayerScore > random){
    youLost ();}
   });
 
 
   $("#button2").on("click",function(){
- 
-    PlayerScore += PlayerScore;
-    $('#finalTotal').text("Total Score:"+ PlayerScore);
+   
+      
+     PlayerScore = PlayerScore + btn2;
+     $('#finalTotal').text("Total Score:"+ PlayerScore);
+   
+      if (random == PlayerScore){ 
+         youWon(); }
+   
+     else if (PlayerScore > random){
+      youLost ();}
+     });
   
-    if (PlayerScore == randomNumber){ 
-        youWon(); }
-  
-    else if (PlayerScore > randomNumber){
-     youLost ();}
-    });
-  
-    $("#button3").on("click",function(){
- 
-      PlayerScore += PlayerScore;
+
+     $("#button3").on("click",function(){
+   
+      
+      PlayerScore = PlayerScore + btn3;
       $('#finalTotal').text("Total Score:"+ PlayerScore);
     
-      if (PlayerScore == randomNumber){ 
+       if (random == PlayerScore){ 
           youWon(); }
     
-      else if (PlayerScore > randomNumber){
+      else if (PlayerScore > random){
        youLost ();}
       });
     
       $("#button4").on("click",function(){
- 
-        PlayerScore += PlayerScore;
+   
+      
+        PlayerScore = PlayerScore + btn4;
         $('#finalTotal').text("Total Score:"+ PlayerScore);
       
-        if (PlayerScore == randomNumber){ 
+         if (random == PlayerScore){ 
             youWon(); }
       
-        else if (PlayerScore > randomNumber){
+        else if (PlayerScore > random){
          youLost ();}
         });
-      
 
 
 
@@ -174,9 +161,6 @@ console.log(random)
 
 
 });
-
-
-
 
 
 
